@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reviews</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main>
+    <h1>Reviews</h1>
+    <div id="message"></div>
+
+    <form id="review-form">
+      <h2 id="form-title">Add a review</h2>
+      <p class="hint">A reviewer cannot review a paper they wrote, and can review a paper only once.</p>
+      <div class="row">
+        <div><label for="f-paper">Paper</label><select id="f-paper" required></select></div>
+        <div><label for="f-reviewer">Reviewer</label><select id="f-reviewer" required></select></div>
+        <div><label for="f-score">Overall score (1 to 5)</label><select id="f-score"></select></div>
+        <div><label for="f-recommendation">Recommendation</label><select id="f-recommendation"></select></div>
+      </div>
+      <label for="f-comments">Comments for authors</label>
+      <textarea id="f-comments" rows="3" required></textarea>
+      <label for="f-confidential">Confidential comments (optional)</label>
+      <textarea id="f-confidential" rows="2"></textarea>
+      <label for="f-date">Submission date (optional, today if empty)</label>
+      <input type="date" id="f-date" style="width:auto">
+      <p>
+        <button type="submit" id="save-button">Add review</button>
+        <button type="button" class="light" id="cancel-button" onclick="resetForm()">Cancel edit</button>
+      </p>
+    </form>
+
+    <h2>All reviews</h2>
+    <table id="reviews-table"></table>
+  </main>
+
+  <script src="/ui/common.js"></script>
+  <script src="/ui/reviews.js"></script>
+</body>
+</html>

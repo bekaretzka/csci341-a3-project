@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Papers</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main>
+    <h1>Papers</h1>
+    <div id="message"></div>
+
+    <form id="paper-form">
+      <h2 id="form-title">Add a paper</h2>
+      <div class="row">
+        <div><label for="f-track">Track</label><select id="f-track" required></select></div>
+        <div><label for="f-status">Status</label><select id="f-status"></select></div>
+        <div>
+          <label for="f-session">Session (only accepted papers; same conference as the track)</label>
+          <select id="f-session"></select>
+        </div>
+      </div>
+
+      <label for="f-title">Title</label><input type="text" id="f-title" required>
+      <label for="f-abstract">Abstract</label><textarea id="f-abstract" rows="3" required></textarea>
+
+      <div class="row">
+        <div>
+          <label for="f-authors">Authors (user IDs in order, comma separated)</label>
+          <input type="text" id="f-authors" placeholder="3, 4" required>
+        </div>
+        <div>
+          <label for="f-corresponding">Corresponding author (user ID)</label>
+          <input type="number" id="f-corresponding" required>
+        </div>
+        <div>
+          <label for="f-keywords">Keywords (comma separated)</label>
+          <input type="text" id="f-keywords" placeholder="databases, indexing">
+        </div>
+      </div>
+      <p class="hint" id="authors-hint"></p>
+
+      <div id="first-version">
+        <label for="f-file">File location of version 1</label>
+        <input type="text" id="f-file" placeholder="papers/my-paper/v1.pdf">
+      </div>
+
+      <button type="submit" id="save-button">Add paper</button>
+      <button type="button" class="light" id="cancel-button" onclick="resetForm()">Cancel edit</button>
+    </form>
+
+    <div class="box" id="versions-box" style="display:none">
+      <h2 id="versions-title">Versions</h2>
+      <table id="versions-table"></table>
+      <h3>Add a version</h3>
+      <div class="row">
+        <div><label for="v-no">Version number</label><input type="number" id="v-no"></div>
+        <div><label for="v-file">File location</label><input type="text" id="v-file"></div>
+        <div><label for="v-note">Change note (optional)</label><input type="text" id="v-note"></div>
+      </div>
+      <p><button type="button" onclick="addVersion()">Add version</button></p>
+    </div>
+
+    <h2>All papers</h2>
+    <p>
+      Show only status:
+      <select id="filter-status" onchange="run(loadPapers)" style="width:auto"></select>
+    </p>
+    <table id="papers-table"></table>
+  </main>
+
+  <script src="/ui/common.js"></script>
+  <script src="/ui/papers.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Conference and Paper Review System</title>
+  <link rel="stylesheet" href="/ui/style.css">
+</head>
+<body>
+  <nav id="nav"></nav>
+  <main>
+    <h1>Research Conference and Paper Review Management System</h1>
+    <div class="box">
+      <p>CSCI 341, Assignment 3. Use the menu to manage the data:</p>
+      <ul>
+        <li><a href="/ui/users.html">Users</a>: authors and reviewers, with their profiles</li>
+        <li><a href="/ui/papers.html">Papers</a>: authors, keywords and versions</li>
+        <li><a href="/ui/reviews.html">Reviews</a>: a reviewer cannot review a paper they wrote</li>
+        <li><a href="/ui/sessions.html">Sessions</a>: and scheduling accepted papers into them</li>
+        <li><a href="/docs">API docs</a>: the same operations as an interactive API page</li>
+      </ul>
+      <p class="hint">
+        Conferences, tracks and reviewer pools are filled by the seed script and are read-only.
+        A rejected change shows a red message and nothing is saved.
+      </p>
+    </div>
+  </main>
+  <script src="/ui/common.js"></script>
+  <script>renderNav("index");</script>
+</body>
+</html>
